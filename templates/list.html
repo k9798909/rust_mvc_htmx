@@ -1,0 +1,43 @@
+{% extends "layout.html" %} {% block content %}
+
+<div class="container mb-5">
+  <div class="row justify-content-end">
+    <div class="col-6">
+      <form hx-post="/list/search" hx-target="tbody" hx-swap="innerHTML">
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="輸入電影名稱"
+            aria-describedby="button-addon"
+            name="name"
+          />
+          <button class="btn btn-primary" type="submit" id="button-addon">
+            查詢
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="col-2">
+      <a class="btn btn-primary" href="/add"> 新增 </a>
+    </div>
+  </div>
+</div>
+
+<table id="table" class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">電影名稱</th>
+      <th scope="col">電影狀態</th>
+      <th scope="col">動作</th>
+    </tr>
+  </thead>
+  <tbody
+    hx-get="/list/all"
+    hx-target="this"
+    hx-trigger="load"
+    hx-swap="innerHTML"
+  ></tbody>
+</table>
+{% endblock %}

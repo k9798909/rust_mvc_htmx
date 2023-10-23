@@ -1,0 +1,73 @@
+{% extends "layout.html" %} {% block content %}
+<form
+  class="w-50 mx-auto"
+  method="post"
+  action={% if action == "A" %} "/add" {% else %} "/{{movie.id}}/update" {% endif %}
+>
+  <div class="row mb-3">
+    <h2 class="text-center">
+      {% if action == "A" %} 新增 {% else %} 修改 {% endif %}
+    </h2>
+  </div>
+  <div class="row mb-3">
+    <input name="id" type="hidden" value=""/>
+    <label for="name" class="col-12 col-form-label">電影名稱：</label>
+    <div class="col-12">
+      <input
+        type="input"
+        class="form-control"
+        id="name"
+        name="name"
+        value="{{movie.name}}"
+      />
+    </div>
+  </div>
+  <fieldset class="row mb-3">
+    <legend class="col-form-label col-12 pt-0">電影狀態：</legend>
+    <div class="col-12 d-flex">
+      <div class="form-check mx-2">
+        <input class="form-check-input" type="radio" name="status"
+        id="gridRadios1" value="0" {% if movie.status == "0" %} checked {% endif
+        %} />
+        <label class="form-check-label" for="gridRadios1"> 未上映 </label>
+      </div>
+      <div class="form-check mx-2">
+        <input class="form-check-input" type="radio" name="status"
+        id="gridRadios2" value="1" {% if movie.status == "1" %} checked {% endif
+        %} />
+        <label class="form-check-label" for="gridRadios2"> 上映 </label>
+      </div>
+      <div class="form-check mx-2">
+        <input class="form-check-input" type="radio" name="status"
+        id="gridRadios3" value="99" {% if movie.status == "99" %} checked {%
+        endif %} />
+        <label class="form-check-label" for="gridRadios3"> 下檔 </label>
+      </div>
+    </div>
+  </fieldset>
+  <div class="row mb-3">
+    <label for="inputEmail3" class="col-12 col-form-label">電影介紹：</label>
+    <div class="col-12">
+      <textarea
+        type="input"
+        class="form-control"
+        id="inputEmail3"
+        name="description"
+      >{{movie.description}}</textarea
+      >
+    </div>
+  </div>
+  <div>
+    {% for msg in message.iter() %}
+    <p class="text-danger">{{msg}}</p>
+    {% endfor %}
+  </div>
+  <div class="row justify-content-center">
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <a class="btn btn-danger border-end" href="/list"> 返回 <br/></a>
+      <button type="submit" class="btn btn-primary border-start">確定</button>
+    </div>
+  </div>
+</form>
+
+{% endblock %}
