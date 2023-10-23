@@ -1,0 +1,14 @@
+.layout {
+  width: 100%;
+}
+
+.sidebar {
+  position: fixed;
+  width: 280px;
+  height: 100vh;
+}
+
+.content {
+  margin-left: 250px;
+  word-wrap: break-word; 
+}

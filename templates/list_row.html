@@ -1,0 +1,17 @@
+{% for (index, dt) in list.iter().enumerate() %}
+<tr>
+  <th scope="row">{{index + 1}}</th>
+  <td>{{dt.name}}</td>
+  <td>{{dt.status}}</td>
+  <td>
+    <a class="btn btn-primary btn-sm" href="/{{dt.id}}/edit">修改</a>
+    <button
+      class="btn btn-danger btn-sm"
+      hx-delete="/movie/{{dt.id}}"
+      hx-target="closest tr"
+    >
+      刪除
+    </button>
+  </td>
+</tr>
+{% endfor %}
