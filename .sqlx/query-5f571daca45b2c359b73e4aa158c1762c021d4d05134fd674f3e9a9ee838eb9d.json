@@ -1,0 +1,18 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n            UPDATE movie\n            SET \n                name = $1,\n                status = $2,\n                description = $3,\n                updated_at = $4\n            WHERE \n                id = $5;\n        ",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Varchar",
+        "Varchar",
+        "Text",
+        "Timestamp",
+        "Int4"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "5f571daca45b2c359b73e4aa158c1762c021d4d05134fd674f3e9a9ee838eb9d"
+}

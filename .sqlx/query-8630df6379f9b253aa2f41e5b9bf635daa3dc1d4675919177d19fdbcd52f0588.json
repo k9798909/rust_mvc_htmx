@@ -1,0 +1,17 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n            INSERT INTO movie (\n                name, \n                status, \n                description, \n                created_at \n            ) VALUES (\n                $1, \n                $2, \n                $3, \n                $4\n            );\n        ",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Varchar",
+        "Varchar",
+        "Text",
+        "Timestamp"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "8630df6379f9b253aa2f41e5b9bf635daa3dc1d4675919177d19fdbcd52f0588"
+}
