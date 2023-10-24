@@ -1,8 +1,7 @@
 FROM rust:1.67-slim as builder
-WORKDIR /usr/src/rust_app
+WORKDIR /app
 COPY . .
-
 ENV SQLX_OFFLINE true
-RUN cargo install --path .
-
-CMD ["rust_app"]
+RUN cargo build --release
+EXPOSE 3000
+CMD ["./target/release/rust_mvc_web"]
